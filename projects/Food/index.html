@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Recipe</title>
+    <link rel="icon" href="WhatsApp_Image_2025-02-13_at_10.18.26_AM-removebg-preview.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        .header {
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            flex-wrap: wrap;
+            position: relative;
+        }
+        
+        .logo {
+            width: 100px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background: #FF5722;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .fas {
+            background: #FF5722;
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .fas:hover {
+            background: #e64a19;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Hamburger Menu Styles */
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .menu-toggle i {
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+        .hero {
+            position: relative;
+            height: 400px;
+            background: url('banner-3.jpg') center/cover;
+            display: flex;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .hero-content {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2rem;
+            border-radius: 8px;
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            color: #333;
+            margin-bottom: 1rem;
+            font-size: 2.5rem;
+        }
+
+        .read-more {
+            background: #FF5722;
+            color: white;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            border-radius: 4px;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .read-more:hover {
+            background: #e64a19;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .section {
+            padding: 3rem 1rem;
+        }
+
+        .recipes-title {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .food-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .food-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .food-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+
+        .food-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .food-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .food-card-content {
+            padding: 1.5rem;
+        }
+
+        .food-card-content h3 {
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .food-card-content p {
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .recipes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .recipe-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .recipe-img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+
+        .blog-section {
+            background: #f5f5f5;
+        }
+
+        .blog-card {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            max-width: 800px;
+            margin: 0 auto;
+            transition: all 0.3s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+
+        .blog-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .blog-card:hover .blog-img {
+            transform: scale(1.1);
+        }
+
+        .footer {
+            background: #FF5722;
+            color: white;
+            padding: 3rem 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer a:hover {
+            color: #f5f5f5;
+            transform: translateX(5px);
+            text-decoration: underline;
+        }
+
+        .newsletter input {
+            padding: 0.5rem;
+            margin-right: 0.5rem;
+            border: none;
+            border-radius: 4px;
+            width: 70%;
+        }
+
+        .newsletter button {
+            background: white;
+            color: #FF5722;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter button:hover {
+            background: #f5f5f5;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+                order: 1;
+            }
+            
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                background: white;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                padding: 1rem;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+                z-index: 1000;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .header {
+                flex-direction: row;
+                gap: 1rem;
+            }
+            
+            .logo {
+                order: 0;
+            }
+            
+            .phone-btn {
+                order: 2;
+            }
+            
+            .hero {
+                height: 300px;
+                justify-content: center;
+                text-align: center;
+            }
+            
+            .hero-content {
+                padding: 1.5rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .blog-card {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .recipes-title {
+                font-size: 2rem !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-links a {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+            
+            .recipes-title {
+                font-size: 1.5rem !important;
+            }
+            
+            .food-card-content, .blog-card {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <img src="WhatsApp_Image_2025-02-13_at_10.18.26_AM-removebg-preview.png" alt="Food Logo" class="logo">
+        
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        
+        <nav class="nav-links">
+            <a href="/home">Home</a>
+            <a href="#">Menu</a>
+            <a href="#">Blog</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </nav>
+        <button class="fas fa-phone phone-btn">+91 8303998025</button>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Healthy Food Recipes</h1>
+            <p>Discover easy, healthy food recipes that nourish your body and delight your taste buds!</p>
+            <a href="#" class="read-more">Read More</a>
+        </div>
+    </section>
+
+    <section class="recipes">
+        <h2 class="recipes-title" style="font-size: 3rem;">Taste of food</h2>
+        <div class="food-grid">
+            <div class="food-card">
+                <img src="indian-chopped-salad-98187-1.jpeg" alt="Salad">
+                <div class="food-card-content">
+                    <h3>Salad</h3>
+                    <p>Fresh, healthy salads made with the finest ingredients. Perfect for a tasty, nutritious meal!</p>
+                </div>
+            </div>
+            <div class="food-card">
+                <img src="semiya-upma-recipe.jpg" alt="Upma">
+                <div class="food-card-content">
+                    <h3>Upma</h3>
+                    <p>A delicious and healthy South Indian breakfast dish made with semolina and vegetables.</p>
+                </div>
+            </div>
+            <div class="food-card">
+                <img src="indian-lentil-and-egg-curry-148613-1.jpg" alt="Curry">
+                <div class="food-card-content">
+                    <h3>Lentil Curry</h3>
+                    <p>Protein-packed lentil curry with aromatic spices, perfect with rice or bread.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="recipes">
+        <h2 class="recipes-title" style="font-size: 2.5rem;">Recipes</h2>
+        <div class="recipes-grid">
+            <img src="semiya-upma-recipe.jpg" alt="Recipe" class="recipe-img">
+            <img src="indian-lentil-and-egg-curry-148613-1.jpg" alt="Recipe" class="recipe-img">
+            <img src="indian-chopped-salad-98187-1.jpeg" alt="Recipe" class="recipe-img">
+            <img src="kqvjhc_burger_625x300_02_April_23.webp" alt="Recipe" class="recipe-img">
+            <img src="images (2).jfif" alt="Recipe" class="recipe-img">
+            <img src="images (1).jfif" alt="Recipe" class="recipe-img">
+            <img src="healthy-tikka-masala-bc7288a.jpg" alt="Recipe" class="recipe-img">
+            <img src="112019658.jpg" alt="Recipe" class="recipe-img">
+            <img src="images (3).jfif" alt="Recipe" class="recipe-img">
+            <img src="flavoured-nankhatai-1.jpg" alt="Recipe" class="recipe-img">
+        </div>
+        <div style="text-align: center; margin-top: 2rem;">
+            <a href="#" class="read-more">Read More</a>
+        </div>
+    </section>
+
+    <section class="section blog-section">
+        <h2 class="section-title">Blog</h2>
+        <div class="blog-card">
+            <img src="download.jfif" alt="Blog author" class="blog-img">
+            <div>
+                <h3>New healthy recipe</h3>
+                <p>Avocado Chickpea Salad: Combine diced avocado, chickpeas, cucumber, cherry tomatoes, and red onion. Drizzle with olive oil and lemon juice, season with salt and pepper, and mix gently. Garnish with parsley if desired. Enjoy!</p>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 2rem;">
+            <a href="#" class="read-more">Read More</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div>
+                <img src="WhatsApp_Image_2025-02-13_at_10.18.26_AM-removebg-preview.png" alt="Food Logo" style="width: 100px; margin-bottom: 1rem;">
+                <p>We provide delicious, fresh, and healthy meals made with quality ingredients. Enjoy convenient, flavorful options that satisfy your taste and nourish your body.</p>
+            </div>
+            <div>
+                <h3>Quick Links</h3>
+                <nav>
+                    <a href="#">Home</a><br>
+                    <a href="#">Contact Us</a><br>
+                    <a href="#">About</a><br>
+                    <a href="#">Blog</a>
+                </nav>
+            </div>
+            <div class="newsletter">
+                <h3>Newsletter</h3>
+                <form>
+                    <input type="email" placeholder="Your email">
+                    <button type="submit">Send</button>
+                </form>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Hamburger menu functionality
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+        
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.nav-links').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>

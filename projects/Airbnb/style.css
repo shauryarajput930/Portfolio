@@ -1,0 +1,403 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+  color: #222;
+}
+
+header {
+  padding: 20px 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 100;
+}
+
+.logo {
+  color: #FF385C;
+  font-weight: bold;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+}
+
+.logo svg {
+  margin-right: 6px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 40px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.05);
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+  flex-wrap: nowrap;
+}
+
+.search-bar:hover {
+  box-shadow: 0 2px 4px rgba(0,0,0,0.18);
+}
+
+.search-bar span {
+  padding: 0 16px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.search-bar .divider {
+  width: 1px;
+  height: 24px;
+  background-color: #ddd;
+}
+
+.search-btn {
+  background-color: #FF385C;
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 8px;
+}
+
+.user-menu {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.globe, .menu {
+  padding: 12px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.globe:hover, .menu:hover {
+  background-color: #f7f7f7;
+  box-shadow: #717171 0px 0px 5px;
+  transition: all 0.2s ease-in-out;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  gap: 10px;
+  border-radius: 30px;
+}
+
+.user-menu a {
+  color: #222;
+  text-decoration: none;
+  margin-right: 24px;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 20px;
+  border-radius: 20px;
+}
+
+.user-menu a:hover {
+  background-color: #f7f7f7;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Scrollable top category bar */
+#container {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  position: sticky;
+  top: 80px;
+  left: 0;
+  background-color: white;
+  overflow-x: auto;
+  padding: 10px 20px;
+  z-index: 10;
+}
+
+.categories {
+  display: flex;
+  gap: 15px;
+  padding: 10px 0;
+  overflow-x: auto;
+  width: max-content;
+  flex-wrap: nowrap;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.category {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 70px;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+  cursor: pointer;
+}
+
+.category:hover {
+  opacity: 1;
+}
+
+.category img {
+  width: 24px;
+  height: 32px;
+  margin-bottom: 8px;
+}
+
+.category span {
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+#container img {
+  height: 20px;
+}
+
+.filter button {
+  position: relative;
+  top: 15px;
+  background-color: white;
+  border-color: rgba(0, 0, 0, 0.267);
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.filter button > img {
+  height: 16px;
+}
+
+.filter button:hover {
+  background-color: #f7f7f7;
+  box-shadow: #717171 0px 0px 5px;
+  transition: all 0.2s ease-in-out;
+}
+
+.listings {
+  padding: 40px 80px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.listing {
+  cursor: pointer;
+}
+
+.listing img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+
+.listing-info {
+  font-size: 14px;
+}
+
+.listing-location {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.listing-distance {
+  color: #717171;
+  margin-bottom: 4px;
+}
+
+.listing-dates {
+  color: #717171;
+  margin-bottom: 4px;
+}
+
+.listing-price {
+  font-weight: 600;
+}
+
+.show-map {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.show-map span {
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.show-map button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #000000;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+footer {
+  border-top: 1px solid #ddd;
+  padding: 20px 80px;
+  background-color: #f7f7f7;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  padding: 24px 0;
+}
+
+.footer-column h4 {
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.footer-column ul {
+  list-style: none;
+}
+
+.footer-column li {
+  margin-bottom: 12px;
+}
+
+.footer-column a {
+  color: #222;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.footer-column a:hover {
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  padding-top: 24px;
+  border-top: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+
+.footer-bottom-left {
+  display: flex;
+  align-items: center;
+}
+
+.footer-bottom-left span {
+  margin: 0 8px;
+}
+
+.footer-bottom-right {
+  display: flex;
+  align-items: center;
+}
+
+.footer-bottom-right a {
+  margin-left: 16px;
+  color: #222;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* ---------------------- RESPONSIVE MEDIA QUERIES ---------------------- */
+
+@media (max-width: 1024px) {
+  .listings {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 20px 40px;
+  }
+
+  header {
+    padding: 20px 40px;
+  }
+
+  footer {
+    padding: 20px 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .listings {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 20px;
+  }
+
+  .search-bar {
+    flex-wrap: wrap;
+    padding: 8px;
+    font-size: 12px;
+    width: 100%;
+  }
+
+  .search-bar span {
+    padding: 4px 10px;
+  }
+
+  .search-btn {
+    margin-left: auto;
+    margin-top: 8px;
+  }
+
+  .user-menu a {
+    display: none;
+  }
+
+  .footer-content {
+    flex-direction: column;
+  }
+
+  .footer-column {
+    margin-bottom: 24px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .footer-bottom-right {
+    margin-top: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .listings {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+
+  .listing img {
+    height: 160px;
+  }
+
+  .search-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
