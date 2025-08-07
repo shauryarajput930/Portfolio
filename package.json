@@ -1,0 +1,21 @@
+{
+ "homepage": "https://shauryarajput930.github.io/Portfolio/", 
+  "name": "main-portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio",
+  "keywords": [
+    "Javascript"
+  ],
+ 
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shauryarajput930/Portfolio.git"
+  },
+  "license": "ISC",
+  "author": "Shaurya Rajput",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
